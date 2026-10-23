@@ -12,7 +12,7 @@
 - **Built With Tags:** `google-antigravity`, `react`, `typescript`, `vite`, `supabase`, `postgresql`, `vitest`, `playwright`
 - **GitHub Repository URL:** `https://github.com/ensuredesign/returnready`
 - **Public Demo Video URL:** `[INSERT_PUBLIC_YOUTUBE_OR_VIMEO_URL_HERE]`
-- **Optional Live App URL:** `[LEAVE_BLANK_OR_INSERT_TESTED_DEPLOYMENT_URL]`
+- **Optional Live App URL:** `https://returnready.ensure.in/`
 
 ---
 

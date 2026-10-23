@@ -17,6 +17,7 @@ playwright-report/
 test-results/
 blob-report/
 playwright/.cache/
+demo_videos/
 
 # Editor / OS
 .vscode/*

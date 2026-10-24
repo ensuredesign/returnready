@@ -1,6 +1,11 @@
 # ReturnReady — Test Results & Verification Report
 
-**Date Executed:** 23 October 2026  
+> **App Developed by:** Ritesh Kochar for **Build, Ship, Shape: Amazon Developer Hackathon** on Oct 23, 2026  
+> **Hackathon URL:** [https://amazonappdev2026.devpost.com/](https://amazonappdev2026.devpost.com/)  
+> **Official YouTube Demo Video:** [https://youtu.be/GEOhZsTn5ME](https://youtu.be/GEOhZsTn5ME)  
+> **Live Web App:** [https://returnready.ensure.in/](https://returnready.ensure.in/)
+
+**Date Executed:** Oct 23, 2026  
 **Workspace:** `d:\MyApp\ReturnReady`  
 **Node / npm:** Node `v24.19.0`, npm `12.0.2`
 
@@ -17,7 +22,7 @@
 | Live Supabase Unauthenticated Block (`A04`) | `npm run test:integration` | `0` (test 1/2) | **PASSED** (unauthenticated `anon` queries return 0 rows / denied) |
 | Live Supabase Auth Session Creation | `ensureDemoSession()` against `https://returnready-sb.propixer.in/auth/v1/` | `0` | **PASSED** (isolated JWT session provisioned) |
 | Live Supabase Schema, RPC & Two-Session RLS Isolation (`A01–A03, A09, A11–A13, A15, A16, A18`) | `npm run test:integration` | `0` (test 2/2) | **PASSED** (2/2 live integration tests passed in 68.2s) |
-| Localhost Browser Journey (`A01–A13, A19, A20`) | Manual & live localhost verification (`http://localhost:5173`) | `0` | **PASSED** |
+| Production & Localhost Browser Journey (`A01–A13, A19, A20`) | Playwright live verification (`https://returnready.ensure.in/` & `http://localhost:5173`) | `0` | **PASSED** |
 
 ---
 
@@ -57,11 +62,15 @@
 
 ---
 
-## 3. How to Run the Remaining Live Database Verification
+## 3. Live Visual Verification Screenshots
 
-Once [`supabase/migrations/20261023000001_returnready_schema.sql`](../supabase/migrations/20261023000001_returnready_schema.sql) has been pasted and executed in the Supabase Studio SQL Editor at `https://returnready-sb.propixer.in`, run:
+All feature states verified and captured from the live application:
+- [Entry Screen (`02-entry-screen.png`)](./images/02-entry-screen.png)
+- [Main Workspace Dashboard (`03-workspace-dashboard.png`)](./images/03-workspace-dashboard.png)
+- [Interactive Checklist & Derived Ready State (`04-checklist-and-ready-state.png`)](./images/04-checklist-and-ready-state.png)
+- [Confirmed Household Assignment (`05-confirmed-assignment.png`)](./images/05-confirmed-assignment.png)
+- [Add Sample Return Modal (`06-add-return-modal.png`)](./images/06-add-return-modal.png)
 
-```bash
-npm run test:integration
-npm run test:e2e
-```
+---
+
+*App Developed by: Ritesh Kochar for Build, Ship, Shape: Amazon Developer Hackathon on Oct 23, 2026*

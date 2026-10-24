@@ -1,6 +1,11 @@
 # Friction Log — ReturnReady Build
 
-All entries below record actual observations encountered while building and testing ReturnReady on 23 October 2026.
+> **App Developed by:** Ritesh Kochar for **Build, Ship, Shape: Amazon Developer Hackathon** on Oct 23, 2026  
+> **Hackathon URL:** [https://amazonappdev2026.devpost.com/](https://amazonappdev2026.devpost.com/)  
+> **Official YouTube Demo Video:** [https://youtu.be/GEOhZsTn5ME](https://youtu.be/GEOhZsTn5ME)  
+> **Live Web App:** [https://returnready.ensure.in/](https://returnready.ensure.in/)
+
+All entries below record actual engineering observations encountered while building, verifying, and deploying **ReturnReady** on Oct 23, 2026.
 
 ---
 
@@ -44,3 +49,7 @@ All entries below record actual observations encountered while building and test
 - **Severity:** Low.
 - **Workaround:** Added [`src/vite-env.d.ts`](../src/vite-env.d.ts) with `/// <reference types="vite/client" />` and explicit `ImportMetaEnv` typings, and added `"vite/client"` to `compilerOptions.types` in [`tsconfig.json`](../tsconfig.json).
 - **Evidence:** Subsequent `npm run typecheck` and `npm run build` exited with code `0`.
+
+---
+
+*App Developed by: Ritesh Kochar for Build, Ship, Shape: Amazon Developer Hackathon on Oct 23, 2026*

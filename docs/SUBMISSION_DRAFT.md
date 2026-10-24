@@ -17,29 +17,26 @@
 - **GitHub Repository URL:** `https://github.com/ensuredesign/returnready`
 - **Public Demo Video URL:** `https://youtu.be/GEOhZsTn5ME`
 - **Live App URL:** `https://returnready.ensure.in/`
-- **Developer:** Ritesh Kochar (Individual Participant, India — Constructed on Oct 23, 2026)
+- **Developer:** Ritesh Kochar (Individual Participant, India — Built on Oct 23, 2026)
 
 ---
 
-## Visual Overview & Feature Gallery
+## Visual Feature Gallery
 
-### 1. System Architecture & End-to-End Application Flow
-![System Architecture and Flow](./images/01-architecture-and-flow.png)
+### 1. Organized Household Returns Workspace & Alexa+ Assistant
+![Less return chaos. More clarity. Your household returns, organized.](./images/01-hero-household-returns-organized.jpg)
 
-### 2. Zero-Friction Entry Screen & Scope Disclosure
-![Entry Screen](./images/02-entry-screen.png)
+### 2. Return Lifecycle — From Planning to Drop-Off
+![From planning to drop-off. See the status of each household return.](./images/02-planning-to-dropoff-status.jpg)
 
-### 3. Main Household Returns Workspace & Alexa+ Assistant
-![Main Workspace Dashboard](./images/03-workspace-dashboard.png)
+### 3. Contextual Missing-Steps Assistant & Packing Checklists
+![Know what is still missing. Ask your assistant before you pack.](./images/03-know-what-is-missing-assistant.jpg)
 
-### 4. Interactive Packing Checklist & Derived "Ready" Status
-![Checklist and Ready State](./images/04-checklist-and-ready-state.png)
+### 4. Persistent Checklists & Confirmed Household Assignments
+![Pick up where you left off. Your checklists and assignments stay saved.](./images/04-saved-progress-and-assignments.jpg)
 
-### 5. Version-Safe Confirmed Household Assignment
-![Confirmed Assignment](./images/05-confirmed-assignment.png)
-
-### 6. Custom Return Creation with Automatic Category Templates
-![Add Return Modal](./images/06-add-return-modal.png)
+### 5. End-to-End Household Return Flow & Technology Stack
+![ReturnReady End-to-End Return Flow & Technology Stack](./images/05-architecture-and-return-flow.png)
 
 ---
 

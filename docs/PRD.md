@@ -22,19 +22,24 @@ The canonical Product Requirements Document (PRD) and build specification is mai
 
 ---
 
-## 2. Visual Screens Implemented
+## 2. Visual Feature Showcase
 
-### Screen A — Entry & Simulation Disclosure
-![Screen A — Entry](./images/02-entry-screen.png)
+### 2.1 Organized Household Returns Workspace & Alexa+ Assistant (`FR-01`, `FR-02`)
+![Less return chaos. More clarity. Your household returns, organized.](./images/01-hero-household-returns-organized.jpg)
+- Shows the 5 active INR (`₹`) returns, 7-day `Asia/Kolkata` deadline buckets (`Due soon`, `Overdue`, `Ready`, `Dropped off`), and the split-screen **ReturnReady Assistant**.
 
-### Screen B — Main Household Workspace & Conversational Assistant
-![Screen B — Main Workspace](./images/03-workspace-dashboard.png)
+### 2.2 Return Lifecycle — From Planning to Drop-Off (`FR-04`, `FR-06`)
+![From planning to drop-off. See the status of each household return.](./images/02-planning-to-dropoff-status.jpg)
+- Illustrates the three core lifecycle stages (**1. Planning**, **2. Preparing** with derived **Ready**, and **3. Dropped off**) alongside clear simulation and scope disclosures.
 
-### Screen C — Item Details, Checklist & Derived Ready State
-![Screen C — Item Details & Ready State](./images/04-checklist-and-ready-state.png)
+### 2.3 Contextual Missing-Steps Assistant & Packing Checklists (`FR-03`)
+![Know what is still missing. Ask your assistant before you pack.](./images/03-know-what-is-missing-assistant.jpg)
+- Demonstrates asking *"What is missing?"* for the **Wireless Headphones (`₹4,999`)** to identify unchecked items (*Charging cable*, *Receipt* / *Protective packaging*) before sealing the box.
 
-### Confirmed Household Assignment Flow
-![Confirmed Assignment to Priya](./images/05-confirmed-assignment.png)
+### 2.4 Persistent Checklists & Confirmed Household Assignments (`FR-05`, `FR-07`)
+![Pick up where you left off. Your checklists and assignments stay saved.](./images/04-saved-progress-and-assignments.jpg)
+- Shows version-safe assignment (`Assigned to Priya`), derived `Ready to drop off` status, and real Supabase PostgreSQL persistence across browser refreshes.
 
-### P1 Add / Edit Return Modal
-![Add Return Modal](./images/06-add-return-modal.png)
+---
+
+*App Developed by: Ritesh Kochar for Build, Ship, Shape: Amazon Developer Hackathon on Oct 23, 2026*

@@ -12,7 +12,7 @@
 
 ## Watch the Official Demo Video
 
-[![ReturnReady Demo Video Thumbnail](./images/03-workspace-dashboard.png)](https://youtu.be/GEOhZsTn5ME)
+[![ReturnReady Demo Video Thumbnail](./images/01-hero-household-returns-organized.jpg)](https://youtu.be/GEOhZsTn5ME)
 
 - **Direct YouTube Link:** [https://youtu.be/GEOhZsTn5ME](https://youtu.be/GEOhZsTn5ME)
 
@@ -27,47 +27,33 @@
 
 ---
 
-## Timed Narration & On-Screen Actions (With Visual Frames)
+## Timed Narration & On-Screen Actions (With Visual Guides)
 
-### 0:00 – 0:15 | Problem & Entry Screen
-- **On screen:** Start on **Screen A** (`Get your returns ready.`). Point the cursor briefly at the notice: `Alexa+ experience simulation · Sample data · No retailer connection`. Click **Try sample household**.
+### 0:00 – 0:35 | Problem, Entry & Checking What Is Due This Week
+- **On screen:** Start on **Screen A** (`Get your returns ready.`), click **Try sample household** to open **Screen B** with 5 sample INR purchases, summary cards, and the ReturnReady Assistant panel on the right. Ask: **`What needs returning this week?`**
 - **Visual Reference:**
-  ![Entry Screen](./images/02-entry-screen.png)
+  ![From planning to drop-off](./images/02-planning-to-dropoff-status.jpg)
 - **Voiceover:**
-  > "Household returns rarely fail because we didn't want to return an item—they fail because a deadline slips by, a charging cable is left on a desk, or nobody knows who is taking the parcel. This is ReturnReady, an Alexa+ experience simulation built in Google Antigravity with React, TypeScript, and Supabase."
-
-### 0:15 – 0:35 | Checking What Is Due This Week
-- **On screen:** The main workspace (**Screen B**) loads with 5 sample purchases, summary cards, and the ReturnReady Assistant panel on the right. Click the suggested prompt or type: **`What needs returning this week?`**
-- **Visual Reference:**
-  ![Main Workspace Dashboard](./images/03-workspace-dashboard.png)
-- **Voiceover:**
-  > "Clicking 'Try sample household' creates an isolated Supabase session and seeds five sample purchases in Indian Rupees. When I ask 'What needs returning this week?', ReturnReady filters to the inclusive seven-day deadline window in Asia/Kolkata—showing three items due soon, including the Wireless Headphones due tomorrow and the Running Shoes already Ready to drop off."
+  > "Household returns rarely fail because we didn't want to return an item—they fail because a deadline slips by, a charging cable is left on a desk, or nobody knows who is taking the parcel. This is ReturnReady, an Alexa+ experience simulation built in Google Antigravity with React, TypeScript, and Supabase. Clicking 'Try sample household' creates an isolated Supabase session and seeds five sample purchases in Indian Rupees. When I ask 'What needs returning this week?', ReturnReady filters to the inclusive seven-day deadline window in Asia/Kolkata—showing three items due soon, including the Wireless Headphones due tomorrow and the Running Shoes already Ready to drop off."
 
 ### 0:35 – 1:20 | Selecting an Item, Checking Missing Steps & Derived Ready State
-- **On screen:** In the Assistant input, type or click **`Prepare the headphones`**, then ask **`What is missing?`** Next, in the Wireless Headphones detail panel on the left, click **Charging cable** and **Protective packaging**. Point out the counter reaching `4 / 4 complete` and the status badge changing to **Ready to drop off**.
+- **On screen:** In the Assistant input, type or click **`Prepare the headphones`**, then ask **`What is missing?`** Next, in the Wireless Headphones detail panel on the left, check off the remaining steps so the counter reaches `4 / 4 complete` and the status badge changes to **Ready to drop off**.
 - **Visual Reference:**
-  ![Checklist and Derived Ready State](./images/04-checklist-and-ready-state.png)
+  ![Know what is still missing](./images/03-know-what-is-missing-assistant.jpg)
 - **Voiceover:**
-  > "Next, I ask to 'Prepare the headphones' and follow up with 'What is missing?'. Because the assistant tracks the active item in context, it opens the Wireless Headphones detail view and reports that two of the four suggested packing steps—the charging cable and protective packaging—are still unchecked. As I check off the charging cable and protective packaging, each toggle persists to Supabase and increments the item's version. Once all four steps are checked, ReturnReady automatically derives the 'Ready to drop off' state—and if I uncheck a step, Ready disappears immediately."
+  > "Next, I ask to 'Prepare the headphones' and follow up with 'What is missing?'. Because the assistant tracks the active item in context, it opens the Wireless Headphones detail view and reports which packing steps are still unchecked. As I check off the remaining steps, each toggle persists to Supabase and increments the item's version. Once all four steps are checked, ReturnReady automatically derives the 'Ready to drop off' state—and if I uncheck a step, Ready disappears immediately."
 
-### 1:20 – 1:40 | Confirmed Household Assignment
-- **On screen:** In the Assistant panel, click or type **`Assign this to Priya`**. Highlight the confirmation card (`Assign Wireless Headphones to Priya?`), then click **Confirm**.
+### 1:20 – 1:55 | Confirmed Household Assignment & Persistence Across Refresh
+- **On screen:** In the Assistant panel, click or type **`Assign this to Priya`**. Highlight the confirmation card (`Assign Wireless Headphones to Priya?`), click **Confirm**, and then click the browser **Reload / Refresh** button to show `Ready to drop off` and `Assigned to Priya` persisted from Supabase PostgreSQL.
 - **Visual Reference:**
-  ![Confirmed Household Assignment](./images/05-confirmed-assignment.png)
+  ![Pick up where you left off](./images/04-saved-progress-and-assignments.jpg)
 - **Voiceover:**
-  > "Now I ask 'Assign this to Priya'. ReturnReady never mutates data without confirmation: it binds the pending action to the item ID, member ID, and expected version. When I click Confirm, it validates the version in PostgreSQL and records 'Assigned to Priya in ReturnReady'—without claiming to send external messages."
-
-### 1:40 – 1:55 | Proving Persistence Across Refresh & Adding Custom Returns
-- **On screen:** Click the browser **Reload / Refresh** button to show `4 / 4 complete`, `Ready to drop off`, and `Assigned owner: Priya` persisted from PostgreSQL. Briefly show the **Add sample return** modal.
-- **Visual Reference:**
-  ![Add Sample Return Modal](./images/06-add-return-modal.png)
-- **Voiceover:**
-  > "When I refresh the browser, ReturnReady resumes the same authenticated Supabase session. The completed checklist, derived Ready status, and Priya's assignment are all persisted in PostgreSQL with Row Level Security isolating each visitor's workspace."
+  > "Now I ask 'Assign this to Priya'. ReturnReady never mutates data without confirmation: it binds the pending action to the item ID, member ID, and expected version. When I click Confirm, it validates the version in PostgreSQL and records 'Assigned to Priya in ReturnReady'. When I refresh the browser, ReturnReady resumes the same authenticated Supabase session—the completed checklist, derived Ready status, and Priya's assignment are all persisted in PostgreSQL with Row Level Security isolating each visitor's workspace."
 
 ### 1:55 – 2:15 | Architecture & Truthful Wrap-Up
-- **On screen:** Show the **Mark dropped off** confirmation flow and architecture overview.
+- **On screen:** Show the **Mark dropped off** confirmation flow and the 6-step architecture overview.
 - **Visual Reference:**
-  ![Architecture and Flow](./images/01-architecture-and-flow.png)
+  ![Architecture and Return Flow](./images/05-architecture-and-return-flow.png)
 - **Voiceover:**
   > "ReturnReady is a rule-based Alexa+ experience simulation built in Google Antigravity with real Supabase Auth, RLS, and transactional SQL RPCs—without requiring a live Alexa device or retailer account integration. It helps households know what is due, prepare what is needed, and decide who will handle it."
 

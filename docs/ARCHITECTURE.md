@@ -6,9 +6,9 @@
 
 ---
 
-## 1. Visual Architecture, Tech Stack & User Flow
+## 1. End-to-End Household Return Flow & Technology Stack
 
-![ReturnReady Architecture, Tech Stack & User Journey](./images/01-architecture-and-flow.png)
+![ReturnReady End-to-End Flow & Technology Stack](./images/05-architecture-and-return-flow.png)
 
 ---
 
@@ -65,3 +65,7 @@ All multi-statement database writes execute inside `SECURITY INVOKER` PL/pgSQL f
 ### 3.4 Derived Status & Calendar-Only Deadlines
 - **Stored vs. Derived Status:** PostgreSQL stores `'planning'`, `'preparing'`, or `'dropped_off'`, with a `CHECK` constraint enforcing `dropped_off_at IS NOT NULL` iff `status = 'dropped_off'`. The service layer derives the visible **Ready to drop off** status whenever `status !== 'dropped_off'`, `checklist.length > 0`, and every checklist step is checked.
 - **Calendar Boundaries (`src/lib/dates.ts`):** Deadlines are stored as PostgreSQL `DATE` (`YYYY-MM-DD`) and compared against today's date in `Asia/Kolkata` using UTC Julian calendar day differences rather than millisecond division.
+
+---
+
+*App Developed by: Ritesh Kochar for Build, Ship, Shape: Amazon Developer Hackathon on Oct 23, 2026*

@@ -62,14 +62,13 @@
 
 ---
 
-## 3. Live Visual Verification Screenshots
+## 3. Feature Visual Reference Gallery
 
-All feature states verified and captured from the live application:
-- [Entry Screen (`02-entry-screen.png`)](./images/02-entry-screen.png)
-- [Main Workspace Dashboard (`03-workspace-dashboard.png`)](./images/03-workspace-dashboard.png)
-- [Interactive Checklist & Derived Ready State (`04-checklist-and-ready-state.png`)](./images/04-checklist-and-ready-state.png)
-- [Confirmed Household Assignment (`05-confirmed-assignment.png`)](./images/05-confirmed-assignment.png)
-- [Add Sample Return Modal (`06-add-return-modal.png`)](./images/06-add-return-modal.png)
+- [Hero Overview — Household Returns Organized (`01-hero-household-returns-organized.jpg`)](./images/01-hero-household-returns-organized.jpg)
+- [Return Lifecycle — Planning to Drop-Off (`02-planning-to-dropoff-status.jpg`)](./images/02-planning-to-dropoff-status.jpg)
+- [Contextual Assistant — Know What Is Still Missing (`03-know-what-is-missing-assistant.jpg`)](./images/03-know-what-is-missing-assistant.jpg)
+- [Persistent Checklists & Assignments (`04-saved-progress-and-assignments.jpg`)](./images/04-saved-progress-and-assignments.jpg)
+- [End-to-End Return Flow & Technology Stack (`05-architecture-and-return-flow.png`)](./images/05-architecture-and-return-flow.png)
 
 ---
 

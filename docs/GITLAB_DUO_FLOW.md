@@ -11,7 +11,7 @@
 
 ## 1. Overview: From Existing Code to AI-Powered DevSecOps
 
-![GitLab Duo Flow Overview](./images/06-gitlab-duo-flow-overview.jpg)
+![GitLab Duo Flow Overview](https://raw.githubusercontent.com/ensuredesign/returnready/main/docs/images/06-gitlab-duo-flow-overview.jpg)
 
 **ReturnReady Guardian** is a household returns assistant built with React 19, TypeScript, Vite, and Supabase PostgreSQL with Row Level Security. While the application already worked, this hackathon entry demonstrates **"Life After Code"** — how autonomous AI agents and automated DevSecOps transform software verification, security scanning, review, and delivery.
 
@@ -21,7 +21,7 @@ Using **GitLab Duo Developer Flow** and **GitLab Duo Code Review Flow**, an exis
 
 ## 2. The 6-Step GitLab Duo Agent Flow
 
-![GitLab Duo Agent Platform — DevSecOps Lifecycle](./images/07-gitlab-duo-agent-platform-lifecycle.jpg)
+![GitLab Duo Agent Platform — DevSecOps Lifecycle](https://raw.githubusercontent.com/ensuredesign/returnready/main/docs/images/07-gitlab-duo-agent-platform-lifecycle.jpg)
 
 ```
 [1. Develop] ───> [2. Verify] ───> [3. Secure] ───> [4. Review] ───> [5. Govern] ───> [6. Release]
@@ -63,7 +63,7 @@ Using **GitLab Duo Developer Flow** and **GitLab Duo Code Review Flow**, an exis
 
 ## 3. Product & Household Assistant Architecture
 
-![ReturnReady Guardian Assistant Flow](./images/09-returnready-guardian-assistant-flow.jpg)
+![ReturnReady Guardian Assistant Flow](https://raw.githubusercontent.com/ensuredesign/returnready/main/docs/images/09-returnready-guardian-assistant-flow.jpg)
 
 ReturnReady Guardian solves real household friction around product returns:
 - **Deadline Tracking:** Visual urgency indicators (past deadline, due tomorrow, due in 3 days) calculated in the local timezone (`Asia/Kolkata`).
@@ -75,8 +75,8 @@ ReturnReady Guardian solves real household friction around product returns:
 
 ## 4. Results & Verified Metrics
 
-![GitLab Transcend Hackathon Results](./images/08-gitlab-transcend-hackathon-results.jpg)
-![GitLab Duo Workflow Key Outcomes](./images/10-gitlab-duo-workflow-outcomes.jpg)
+![GitLab Transcend Hackathon Results](https://raw.githubusercontent.com/ensuredesign/returnready/main/docs/images/08-gitlab-transcend-hackathon-results.jpg)
+![GitLab Duo Workflow Key Outcomes](https://raw.githubusercontent.com/ensuredesign/returnready/main/docs/images/10-gitlab-duo-workflow-outcomes.jpg)
 
 | Metric | Result | Verification Link |
 |---|---|---|

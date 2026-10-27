@@ -1,174 +1,156 @@
-# ReturnReady — Your Household Returns Assistant
+# ReturnReady Guardian — From Existing Code to AI-Powered DevSecOps
 
-**App Developed by:** **Ritesh Kochar** (`@ensuredesign`) for **Build, Ship, Shape: Amazon Developer Hackathon** on **Oct 23, 2026**  
-**Track:** Alexa+ Track (Simulated Experience Path)  
-**Built With:** Google Antigravity, React 19, TypeScript 5.7, Vite 6, Supabase (Auth, PostgREST, PostgreSQL + RLS), Vitest, Playwright & Vercel
+**GitLab Transcend 2026: Life After Code Hackathon** • **Theme 2: Bring Your Own**  
+**Developer:** **Ritesh Kochar** (`@ensure01`)  
+**Live Deployed Application:** [https://returnready-guardian.vercel.app/](https://returnready-guardian.vercel.app/)  
+**GitLab Hackathon Repository:** [https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian)  
+**Original GitHub Repository:** [https://github.com/ensuredesign/returnready](https://github.com/ensuredesign/returnready)  
 
-[![Live Demo Application](https://img.shields.io/badge/Live_App-returnready.ensure.in-0D7A6F?style=for-the-badge)](https://returnready.ensure.in/)
-[![Watch Demo Video on YouTube](https://img.shields.io/badge/YouTube_Demo_Video-Watch_Now_(2%3A21)-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/GEOhZsTn5ME)
+[![GitLab CI Main Pipeline](https://img.shields.io/badge/GitLab_CI-6_Jobs_Passing-10B981?style=for-the-badge&logo=gitlab)](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/pipelines/2993974901)
+[![GitLab Duo MR !2](https://img.shields.io/badge/GitLab_Duo-MR_!2_Approved_%26_Merged-7B58C3?style=for-the-badge&logo=gitlab)](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/merge_requests/2)
+[![Live Application](https://img.shields.io/badge/Live_App-returnready--guardian.vercel.app-00D2FF?style=for-the-badge)](https://returnready-guardian.vercel.app/)
+[![Vitest Unit Tests](https://img.shields.io/badge/Vitest-24%2F24_Passed-FCC624?style=for-the-badge&logo=vitest)](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/jobs/17500632234)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0F1E36?style=for-the-badge)](./LICENSE)
 
-> **Simulation Notice:** Rule-based conversational simulation built using AI-assisted development in Google Antigravity; no live Alexa backend or LLM runtime. Sample data is provided for instant testing; ReturnReady does not connect to retailer accounts, verify return-policy eligibility, process refunds, book couriers, or send external notifications.
+---
+
+## 1. Hackathon Overview — Life After Code with GitLab Duo
+
+![ReturnReady Guardian — From Existing Code to AI-Powered DevSecOps](https://raw.githubusercontent.com/ensuredesign/returnready/main/docs/images/06-gitlab-duo-flow-overview.jpg)
+
+**ReturnReady Guardian** demonstrates **"Life After Code"** for Theme 2 (Bring Your Own) of the GitLab Transcend 2026 Hackathon. 
+
+Writing application code is only the starting point. What happens *after* development determines whether software is secure, reliable, and ready for production. We started with a genuine, working single-page application ([ReturnReady on GitHub](https://github.com/ensuredesign/returnready)) and used **GitLab Duo Autonomous Agents** to transform how it is tested, verified, reviewed, and delivered.
+
+> **Project Tagline:** *From Existing Code to AI-Powered DevSecOps.*  
+> A working household returns assistant, now developed, verified, reviewed, and released with GitLab Duo.
 
 ---
 
-## 🎥 Official Demo Video & Live Application
+## 2. The GitLab Duo DevSecOps Lifecycle
 
-- **YouTube Demo Video (2:21):** [**https://youtu.be/GEOhZsTn5ME**](https://youtu.be/GEOhZsTn5ME)
-- **Live Deployed Application:** [**https://returnready.ensure.in/**](https://returnready.ensure.in/)
-- **GitHub Repository:** [**https://github.com/ensuredesign/returnready**](https://github.com/ensuredesign/returnready)
+![GitLab Duo Agent Platform — DevSecOps Lifecycle](https://raw.githubusercontent.com/ensuredesign/returnready/main/docs/images/07-gitlab-duo-agent-platform-lifecycle.jpg)
+
+The entire delivery flow is governed by automated verification and autonomous AI agents:
+
+```
+[1. Develop] ───> [2. Verify] ───> [3. Secure] ───> [4. Review] ───> [5. Govern] ───> [6. Release]
+ GitLab Duo        6 CI Jobs       Semgrep SAST     GitLab Duo       Human Merge      Live Vercel
+ Developer Flow    24 Unit Tests   Secret Detect    Code Review      by Maintainer    Edge Deploy
+ (Session 10118219) (Pipeline)     (Isolated)       (Session 10120008) (Pipeline #2993974901) (Supabase RLS)
+```
+
+### Stage 1: Develop — GitLab Duo Developer Flow (Session #10118219)
+- **Goal:** Upgrade `.gitlab-ci.yml` from security-only scanning to a full validation pipeline.
+- **Autonomous Inspection:** The agent examined `package.json`, `vite.config.ts`, `tsconfig.json`, and `.gitlab-ci.yml`.
+- **Security-First Architecture:** Deliberately created a private, hidden `.node_job` template using `node:22-alpine` with npm dependency caching keyed to `package-lock.json`. This guaranteed that GitLab security scanner containers never inherit Node.js installation commands.
+- **Merge Request Created:** The agent autonomously created branch `ci/add-validation-pipeline` and opened [MR !2](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/merge_requests/2), marked it ready, and provided full technical rationale in the MR description.
+
+### Stage 2: Verify — Automated CI/CD Pipeline
+- **TypeScript Typecheck (`typecheck`):** Executes `tsc --noEmit` in stage `validate`, guaranteeing zero type errors.
+- **ESLint Validation (`lint`):** Executes `eslint src tests --max-warnings 0` in stage `validate` (strict zero-warning policy).
+- **Vitest Unit Tests (`unit_tests`):** Executes `vitest run` in stage `test`, reporting **24 passing tests** across 4 test suites with native JUnit XML report generation (`artifacts: reports: junit`).
+- **Production Build (`build`):** Executes `tsc -b && vite build` in stage `build`, producing an optimized production bundle in `dist/` retained for 1 week.
+
+### Stage 3: Secure — Container-Isolated Security Analysis
+- **Semgrep SAST (`semgrep-sast`):** Scans the codebase for static application security vulnerabilities.
+- **Secret Detection (`secret_detection`):** Scans repository commits and files for exposed credentials and API secrets.
+- **Zero Pollution:** Kept official analyzer images (`registry.gitlab.com/security-products/...`) completely clean of `npm ci` overhead.
+- **MR Pipeline Support:** Configured `AST_ENABLE_MR_PIPELINES: 'true'` to ensure security scanners run consistently during Merge Request evaluations.
+
+### Stage 4: Review — GitLab Duo Code Review Flow (Session #10120008)
+- **Independent AI Review:** GitLab Duo independently reviewed the diff on [MR !2](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/merge_requests/2).
+- **Key Verifications:**
+  - Verified that the `.node_job` template is properly scoped with `extends` to Node jobs only.
+  - Verified that `workflow:rules` avoids duplicate branch/MR pipelines while maintaining security scanner execution.
+  - Verified dependency cache hygiene and artifact expiration policies.
+- **Recorded Approval:** GitLab Duo commented: *"I finished my review and found nothing to comment on. Nice work! :tada:"* and formally **approved Merge Request !2**.
+
+### Stage 5: Govern — Human Decision & Main Pipeline #2993974901
+- **Human-in-the-Loop:** Maintainer Ritesh Kochar reviewed the AI-approved MR and executed the merge commit (`c9077de`) into `main`.
+- **Main Pipeline Passed:** Main branch [pipeline #2993974901](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/pipelines/2993974901) ran all 6 jobs concurrently and passed with 100% green checks.
+
+### Stage 6: Release — Live Production Deployment
+- **Public URL:** [https://returnready-guardian.vercel.app/](https://returnready-guardian.vercel.app/)
+- **Zero Functional Drift:** Retained the entire working application's functionality while establishing an enterprise-grade AI-assisted delivery lifecycle.
 
 ---
 
-## 1. Product Overview — Less Return Chaos, More Clarity
+## 3. Verified Hackathon Results & Automated Quality Metrics
 
-![ReturnReady — Less return chaos. More clarity. Your household returns, organized.](./docs/images/01-hero-household-returns-organized.jpg)
+![GitLab Transcend 2026 Hackathon Results](https://raw.githubusercontent.com/ensuredesign/returnready/main/docs/images/08-gitlab-transcend-hackathon-results.jpg)
 
-**ReturnReady** helps a household turn an intention to return a purchase into a prepared, assigned task. Household returns frequently fail because a return deadline slips by, packing accessories (such as a charging cable or receipt) are left behind on a desk, or two family members each assume the other person handled the drop-off.
+| Metric | Result | Verification Evidence |
+|---|---|---|
+| **GitLab Duo Developer Flow** | **Completed Successfully** | [Agent Session #10118219](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/automate/agent-sessions/10118219) |
+| **GitLab Duo Code Review Flow** | **Approved MR !2** | [Agent Session #10120008](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/automate/agent-sessions/10120008) |
+| **AI-Generated Merge Request** | **MR !2 Merged into `main`** | [Merge Request !2](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/merge_requests/2) |
+| **Concurrent CI/CD Pipeline Jobs** | **6 / 6 Passed** | [Main Pipeline #2993974901](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/pipelines/2993974901) |
+| **Automated Unit Tests** | **24 / 24 Passed (0 Failures)** | [unit_tests Job #17500632234](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/jobs/17500632234) |
+| **Static Security Analysis** | **Semgrep SAST Clean** | [semgrep-sast Job #17500632233](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/jobs/17500632233) |
+| **Secret Detection** | **Zero Leaked Secrets** | [secret_detection Job #17500632236](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43775292/returnready-guardian/-/jobs/17500632236) |
+| **Live Deployed Application** | **Public on Vercel** | [https://returnready-guardian.vercel.app/](https://returnready-guardian.vercel.app/) |
 
-> **Core Promise:** *Know what is due, prepare what is needed, and decide who will handle it.*
+---
 
-### Five Core Capabilities Shown Above
+## 4. ReturnReady Household Assistant Experience
+
+![ReturnReady Guardian Household Assistant & DevSecOps Flow](https://raw.githubusercontent.com/ensuredesign/returnready/main/docs/images/09-returnready-guardian-assistant-flow.jpg)
+
+### What the Application Does
+**ReturnReady** helps households turn an intention to return a purchase into a prepared, assigned errand:
 1. **Deadline Tracking (`Asia/Kolkata`):** Displays active returns sorted by earliest user-recorded deadline, with instant summary cards for **Active returns (`5`)**, **Due within 7 days (`3`)**, and **Ready to drop off (`1`)**, plus one-click filters for **All active**, **Due soon**, **Overdue**, **Ready**, and **Dropped off**.
 2. **Conversational Help (Alexa+ Experience Simulation):** A split-screen **ReturnReady Assistant** panel lets users ask natural questions such as *"What needs returning this week?"*, *"Prepare the headphones"*, and *"What is missing?"* via text, suggested prompt chips, or browser speech input.
 3. **Packing Checklists:** Item-specific preparation steps ensure every accessory, cable, and receipt goes into the box before sealing it.
-4. **Confirmed Assignments:** Coordinate household responsibility across members (`Me`, `Priya`, `Alex`, or custom names) with explicit confirmation cards.
-5. **Saved Progress:** Backed by a real Supabase PostgreSQL database with per-session Row Level Security (`RLS`) so every toggle and assignment persists across browser refreshes.
+4. **Derived Ready State:** When all checklist items are checked (`4 of 4 complete`), ReturnReady automatically derives the **Ready to drop off** badge. Unchecking any step removes Ready immediately.
+5. **Confirmed Assignments:** Coordinate household responsibility across members (`Me`, `Priya`, `Alex`) with version-bound optimistic concurrency verification.
+6. **Supabase PostgreSQL RLS Persistence:** Scoped tables with Row Level Security (`auth.uid()`) isolate each visitor's household workspace while surviving page reloads.
 
 ---
 
-## 2. Feature Walkthrough
+## 5. Summary of Key Outcomes
 
-### 2.1 From Planning to Drop-Off — Clear Lifecycle Status for Every Return
+![GitLab Duo Workflow & Key Outcomes](https://raw.githubusercontent.com/ensuredesign/returnready/main/docs/images/10-gitlab-duo-workflow-outcomes.jpg)
 
-![From planning to drop-off — See the status of each household return](./docs/images/02-planning-to-dropoff-status.jpg)
-
-Every purchase in ReturnReady progresses through a clear, transparent preparation lifecycle:
-- **1. Planning:** Record the item details, purchase amount in Indian Rupees (`₹`), and user-entered return deadline (`return_deadline >= purchase_date`), or start immediately with the 5 seeded sample household purchases via `rr_bootstrap_demo()`.
-- **2. Preparing & Derived “Ready” Status:** As household members check off packing steps, the item transitions from `Planning` to `Preparing`. The moment all checklist items are checked (`100%`), ReturnReady automatically derives the **Ready to drop off** badge. Unchecking any step immediately removes the Ready state.
-- **3. Dropped Off:** Once a family member takes the parcel to the drop-off location and confirms **Mark dropped off**, ReturnReady records the `dropped_off_at` timestamp in PostgreSQL and locks the checklist against accidental edits (unless explicitly reopened).
-- **Honest Scope Guardrails:** ReturnReady clearly states on screen that deadlines and drop-offs are recorded by the user and that there is no live retailer connection or refund processing.
-
----
-
-### 2.2 Know What Is Still Missing — Contextual Assistant & Packing Checklists
-
-![Know what is still missing — Ask your assistant before you pack](./docs/images/03-know-what-is-missing-assistant.jpg)
-
-Before sealing a return parcel, users can ask the **ReturnReady Assistant** what still needs to go inside the box:
-- **Contextual Item Focus:** Asking *"Prepare the headphones"* selects the **Wireless Headphones (`₹4,999`)** in the workspace context. Following up with *"What is missing?"* inspects the live checklist state for that item (`2 of 4 packed`) and highlights the exact unchecked items (such as the **Charging cable** and **Receipt** / **Protective packaging**).
-- **Atomic Checklist Persistence (`rr_set_checklist`):** Each checklist step toggles independently in PostgreSQL, disables duplicate clicks while saving, retains its prior state if a network error occurs, and increments the parent return's `version` counter.
-- **Actionable Next Steps:** Combines deadline awareness, packing step verification, and guided next prompts in one conversational view.
+- **Two Real GitLab Duo Agent Flows:** Authentic Developer Flow (#10118219) and Code Review Flow (#10120008).
+- **AI-Generated MR !2 and Approval:** Completed, reviewed, approved, and merged with full traceability.
+- **Six Concurrent CI/CD Jobs:** Automated typechecking, linting, unit testing, Vite bundling, SAST, and Secret Detection.
+- **Twenty-Four Passing Unit Tests:** Covering calendar date math, intent routing, derived ready status, and UI error retention.
+- **Enterprise DevSecOps Governance:** Security scanner containers remain isolated from application Node.js tooling.
+- **Working Application Live:** Deployed at [`returnready-guardian.vercel.app`](https://returnready-guardian.vercel.app/).
 
 ---
 
-### 2.3 Pick Up Where You Left Off — Confirmed Assignments & Persistent State
+## 6. Technology Stack
 
-![Pick up where you left off — Your checklists and assignments stay saved](./docs/images/04-saved-progress-and-assignments.jpg)
-
-ReturnReady is engineered so household coordination never gets lost when you close or refresh the tab:
-- **Version-Bound Confirmed Household Assignment (`rr_confirm_action`):** Asking *"Assign this to Priya"* (or selecting **Priya** in the item detail view) never mutates the database silently. Instead, it creates a pending confirmation card bound to the item ID, member ID, and expected database `version` (with a 5-minute expiration window).
-- **Optimistic Concurrency Verification:** When the user clicks **Confirm**, PostgreSQL verifies that `rr_returns.version = expected_version` before saving `Assigned to Priya`. If the item was modified in the meantime, the stale confirmation is rejected safely and refreshed.
-- **True Supabase Persistence Across Refresh:** Because every visitor receives an isolated authenticated Supabase JWT session (`ensureDemoSession()`) backed by PostgreSQL Row Level Security (`owner_user_id = (SELECT auth.uid())`), refreshing the browser preserves `Ready to drop off` status, completed checklists, and `Assigned to Priya`.
-
----
-
-## 3. End-to-End Household Return Flow & Technology Stack
-
-![ReturnReady End-to-End Household Return Flow & Technology Stack](./docs/images/05-architecture-and-return-flow.png)
-
-### 6-Step End-to-End Household Return Flow
-1. **Try Sample Household:** Establishes an isolated Supabase Auth session and runs `rr_bootstrap_demo()` to seed 5 INR (`₹`) purchases and 3 household members (`Me`, `Priya`, `Alex`).
-2. **What Is Due This Week?:** Filters active returns to the inclusive 7-day calendar window (`today` through `today + 7`) anchored to `Asia/Kolkata`.
-3. **Prepare the Headphones:** Selects the item in conversational context and reports missing packing steps.
-4. **Complete Checklist:** Toggles packing steps via `rr_set_checklist()` and automatically derives **Ready to Drop Off** when all steps are checked.
-5. **Assign to Priya:** Presents a version-bound confirmation card (`Confirm`) and executes `rr_confirm_action()`.
-6. **Persist & Handover:** Saves all state in PostgreSQL protected by Row Level Security (`RLS`) and composite foreign keys, surviving browser reloads.
-
-### Technology Stack Summary
-
-| Layer | Technology | Role in ReturnReady |
+| Layer | Technology | Role in ReturnReady Guardian |
 |---|---|---|
-| **Frontend UI** | **React 19** | Split workspace dashboard, item detail drawer, and accessible status cards |
-| **Type & State Safety** | **TypeScript 5.7** | Strict type checking, derived status logic, and version-bound confirmation models |
-| **Build Tooling** | **Vite 6** | Fast HMR development server and optimized production asset bundling |
-| **Auth & Data API** | **Supabase (`@supabase/supabase-js`)** | Isolated per-session JWT authentication, PostgREST Data API, and RPC execution |
-| **Database & Security** | **PostgreSQL 15+ (RLS + PL/pgSQL)** | Scoped `rr_*` tables, Row Level Security (`auth.uid()`), composite FKs, triggers & 4 transactional RPCs |
-| **Validation & Icons** | **Zod + Lucide React** | Schema/currency validation (INR paise `amount_minor`) and accessible category icons |
-| **Automated Verification** | **Vitest + Playwright** | 26 automated tests (24 unit/component tests + 2 live two-session Supabase RLS integration tests) + E2E suite |
-| **IDE & Hosting** | **Google Antigravity + Vercel** | Agentic full-stack engineering and global production deployment at [`returnready.ensure.in`](https://returnready.ensure.in/) |
+| **AI Agent Platform** | **GitLab Duo Developer & Code Review Flows** | Autonomous pipeline development, repo inspection, code review, and approval |
+| **DevSecOps & CI/CD** | **GitLab CI/CD, Semgrep SAST, Secret Detection** | 6-job automated pipeline, container isolation, JUnit reporting, security scanning |
+| **Frontend Framework** | **React 19 + TypeScript 5.7** | Household returns workspace, accessible status cards, strict typing |
+| **Build & Dev Tooling** | **Vite 6** | Fast HMR dev server and production asset compilation (`dist/`) |
+| **Backend & Persistence** | **Supabase (PostgreSQL 15+ & RLS)** | Scoped tables, Row Level Security (`auth.uid()`), composite FKs, transactional RPCs |
+| **Automated Testing** | **Vitest 3.0.5 + Playwright 1.50** | 24 unit/component tests + 2 live two-session Supabase RLS integration tests + E2E |
+| **Hosting & Public Edge** | **Vercel** | Edge hosting for the live application at [`returnready-guardian.vercel.app`](https://returnready-guardian.vercel.app/) |
+| **Agentic Engineering** | **Google Antigravity** | System architecture, schema design, test generation, and full-stack development |
 
 ---
 
-## 4. Reproducible Local Setup
+## 7. Technical Documentation Index
 
-Follow these steps from a fresh clone:
+All project documentation is maintained in [`docs/`](./docs/):
 
-### Step 1 — Clone & Install Dependencies
-```bash
-git clone https://github.com/ensuredesign/returnready.git
-cd returnready
-npm install
-```
-
-### Step 2 — Configure Dedicated Supabase Project & Auth
-1. Create or select a dedicated Supabase project.
-2. In Supabase Dashboard → **Authentication → Providers**, enable **Anonymous Sign-Ins** (ReturnReady also includes an automatic fallback to isolated ephemeral authenticated sessions if `anonymous_users` is disabled on a self-hosted GoTrue instance with `phone_autoconfirm` enabled).
-
-### Step 3 — Apply Versioned Database Migration
-Apply [`supabase/migrations/20261023000001_returnready_schema.sql`](./supabase/migrations/20261023000001_returnready_schema.sql) via **either**:
-- **Supabase Studio SQL Editor:** Open **SQL Editor → New query**, paste the contents of [`supabase/migrations/20261023000001_returnready_schema.sql`](./supabase/migrations/20261023000001_returnready_schema.sql), and click **Run**.
-- **Supabase CLI:**
-  ```bash
-  npx supabase db push
-  ```
-
-### Step 4 — Configure Environment Variables
-Copy `.env.example` to `.env` and fill in your Supabase URL and publishable/anon key (never place a `service_role` or secret key in `.env`):
-
-```bash
-cp .env.example .env
-```
-
-```dotenv
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_PUBLISHABLE_KEY=your-publishable-or-anon-key
-```
-
-### Step 5 — Run the App & Verification Suite
-```bash
-npm run dev
-```
-Open `http://localhost:5173` and click **Try sample household**.
-
-To run all verification checks:
-```bash
-npm run typecheck
-npm run lint
-npm test
-npm run build
-npm run test:integration
-npm run test:e2e
-```
-
----
-
-## 5. Technical Documentation Index
-
-All project and hackathon documentation is maintained in [`docs/`](./docs/):
-
+- [**GitLab Duo DevSecOps Flow Guide (`docs/GITLAB_DUO_FLOW.md`)**](./docs/GITLAB_DUO_FLOW.md) — Comprehensive technical guide detailing the 6-step agent flow, MR !2, and pipeline configs.
 - [**Architecture Overview (`docs/ARCHITECTURE.md`)**](./docs/ARCHITECTURE.md) — System topology, RLS policies, composite FKs, triggers, and transactional RPC specifications.
 - [**Product Requirements Reference (`docs/PRD.md`)**](./docs/PRD.md) — Summary of functional requirements (`FR-01`–`FR-07`), acceptance tests (`A01`–`A20`), and visual feature guide.
-- [**Full PRD & Build Prompt (`ReturnReady_PRD_and_Antigravity_Prompt.md`)**](./ReturnReady_PRD_and_Antigravity_Prompt.md) — Complete specification used to build ReturnReady.
-- [**Demo Video Script & Storyboard (`docs/DEMO_SCRIPT.md`)**](./docs/DEMO_SCRIPT.md) — Scene-by-scene narration for [https://youtu.be/GEOhZsTn5ME](https://youtu.be/GEOhZsTn5ME).
-- [**Devpost Submission Package (`docs/SUBMISSION_DRAFT.md`)**](./docs/SUBMISSION_DRAFT.md) — Complete project story, track details, and visual showcase.
-- [**Product Feedback (`docs/PRODUCT_FEEDBACK.md`)**](./docs/PRODUCT_FEEDBACK.md) — Developer tool feedback on Google Antigravity and Supabase.
-- [**Friction Log (`docs/FRICTION_LOG.md`)**](./docs/FRICTION_LOG.md) — Detailed friction log entries (`FL-01`–`FL-03`) with severity, workarounds, and suggestions.
 - [**Test Results & Verification Report (`docs/TEST_RESULTS.md`)**](./docs/TEST_RESULTS.md) — Exact commands and verified pass outputs for typecheck, lint, unit, build, and live two-session RLS integration tests.
+- [**Friction Log (`docs/FRICTION_LOG.md`)**](./docs/FRICTION_LOG.md) — Detailed friction log entries (`FL-01`–`FL-03`) with severity, workarounds, and suggestions.
+- [**Hackathon Video Deliverables (`demo_videos/gitlab_transcend_2026/`)**](./demo_videos/gitlab_transcend_2026/) — Master MP4 video (`01:58`), voiceover audio, SRT subtitles, cue sheet, and YouTube metadata.
 
 ---
 
-## 6. Author & License
+## 8. Author & License
 
-- **App Developed by:** **Ritesh Kochar** for **Build, Ship, Shape: Amazon Developer Hackathon** on **Oct 23, 2026**
+- **Developer:** **Ritesh Kochar** (`@ensure01`)  
+- **Hackathon:** **GitLab Transcend 2026: Life After Code Hackathon (Theme 2: Bring Your Own)**  
 - **License:** [MIT License](./LICENSE)

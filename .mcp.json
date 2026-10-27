@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "serverUrl": "https://returnready-sb.propixer.in/mcp"
+    }
+  }
+}

@@ -6,14 +6,89 @@
 # Note that environment variables can be set in several places
 # See https://docs.gitlab.com/ci/variables/#cicd-variable-precedence
 stages:
-- test
-- secret-detection
-sast:
-  stage: test
+  - validate
+  - test
+  - build
+  - secret-detection
+
 include:
-- template: Security/SAST.gitlab-ci.yml
-- template: Security/Secret-Detection.gitlab-ci.yml
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
+# Pipeline triggering: run only merge request pipelines and default-branch pipelines.
+# - Merge request pipelines always run for MR events.
+# - Branch (push) pipelines are suppressed when the branch has an open MR, avoiding duplicate pipelines.
+# - Pipelines on the default branch (push, schedule, web, api) always run.
+# NOTE: GitLab SAST & Secret Detection templates only run in MR pipelines when
+# AST_ENABLE_MR_PIPELINES is "true".
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
 variables:
   SECRET_DETECTION_ENABLED: 'true'
+  # Make the security templates run in MR pipelines and avoid silent skipping
+  AST_ENABLE_MR_PIPELINES: 'true'
+  # Keep npm quiet and fast in Node jobs
+  NPM_CONFIG_UPDATE_NOTIFIER: 'false'
+
+# Existing security job overrides (preserved exactly)
+sast:
+  stage: test
+
 secret_detection:
   stage: secret-detection
+
+# Hidden template used ONLY by application validation jobs below.
+# Deliberately isolated from global defaults so security scanners (sast, semgrep-sast,
+# secret_detection) retain their specialized analyzer images without inheriting Node.js
+# container settings, npm cache, or before_script installation commands.
+.node_job:
+  image: node:22-alpine
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  before_script:
+    - npm ci --cache .npm --prefer-offline
+
+typecheck:
+  extends: .node_job
+  stage: validate
+  script:
+    - npm run typecheck
+
+lint:
+  extends: .node_job
+  stage: validate
+  script:
+    - npm run lint
+
+unit_tests:
+  extends: .node_job
+  stage: test
+  script:
+    - npm test -- --reporter=default --reporter=junit --outputFile.junit=junit.xml
+  artifacts:
+    when: always
+    paths:
+      - junit.xml
+    reports:
+      junit: junit.xml
+
+# VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY are not required at build time:
+# src/lib/supabase.ts only evaluates them lazily at runtime when the client is requested.
+build:
+  extends: .node_job
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
